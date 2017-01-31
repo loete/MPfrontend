@@ -1,0 +1,29 @@
+<div>
+  <h3>{{message.messageTitle}}</h3>
+  <h4>{{user.userName}}</h4>
+  <p>{{message.messageContent}}</p>
+
+  <div class="ui comments">
+    <h3 class="dividing header">Comments</h3>
+    <div *ngFor="let comment of message.commentList">
+      <div class="ui grid">
+        <span class="author">{{comment.userName}}</span>
+        <div class="text">
+          {{comment.content}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="ui grid">
+    <span class="author">{{user.userName}}</span>
+  </div>
+  <div>
+    <form class="ui form" (ngSubmit)="onSubmit()" #commentForm="ngForm">
+      <div class="field">
+        <textarea #words rows="3" placeholder="Add comment..." required [(ngModel)]="newComment.content" name="words"></textarea>
+      </div>
+      <button type="submit" class="ui secondary button">Comment</button>
+    </form>
+  </div>
+</div>

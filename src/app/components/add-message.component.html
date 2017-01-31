@@ -1,0 +1,23 @@
+<div>
+  <form *ngIf="!messageAdded" (ngSubmit)="onSubmit()" #addMessageForm = "ngForm">
+    <h2>Add Message</h2>
+    <div>
+      <label>MessageTitel</label>
+      <input type="text" name="messageTitle" placeholder="Title" [(ngModel)]="newMessage.messageTitle">
+    </div>
+    <div>
+      <label>MessageContent</label>
+      <input type="text" name="messageTitle" placeholder="Title" [(ngModel)]="newMessage.messageContent">
+    </div>
+    <div>
+      <label>Date</label>
+      <input type="date" name="messageDate" placeholder="Date" [(ngModel)]="newMessage.messageDate">
+    </div>
+    <br/>
+    <button type="submit" [disabled]="!addMessageForm.form.valid">Add Message</button>
+  </form>
+
+  <div *ngIf="messageAdded">
+    <h2>Message Added!</h2>
+  </div>
+</div>

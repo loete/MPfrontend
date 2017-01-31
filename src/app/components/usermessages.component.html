@@ -1,0 +1,10 @@
+<div>
+  <div>
+    <span *ngFor="let m of messages" >
+      <div (click)="onSelect(m)">{{m.messageTitle}}</div>
+      <div>{{m.likes}}</div>
+      <div>{{m.messageContent}}</div>
+    </span>
+  </div>
+  <a routerLink="/add-message" routerLinkActive="active">Add Message</a>
+</div>

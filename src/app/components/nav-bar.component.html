@@ -1,0 +1,10 @@
+<div class="ui stackable menu">
+  <div class="item" href="/home">
+    <img src="../../resources/static/logo.png">
+  </div>
+  <a class="item" routerLink="/home" routerLinkActive="active">Home</a>
+  <a class="item" routerLink="/my-messages" routerLinkActive="active">myMessages</a>
+  <a class="item" routerLink="/add-message" routerLinkActive="active">addMessage</a>
+  <a class="item" *ngIf="!loginService.checkLogin()" routerLink="/register" routerLinkActive="active">Register</a>
+  <a class="item" routerLink="/login" routerLinkActive="active" (click)="onClick()">{{loginService.checkLogin()?'Logout':'Login'}}</a>
+</div>

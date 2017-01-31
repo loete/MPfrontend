@@ -1,0 +1,20 @@
+<div class="pusher">
+  <div class="ui inverted vertical masthead segment">
+    <div class="ui text container">
+      <h1>{{message.messageTitle}}</h1>
+    </div>
+    <br/>
+    <div class="ui grid">
+      <div class="left floated six wide column">
+        <i class="long arrow left icon"></i><span (click)="goBack()">Back</span>
+      </div>
+      <div class="right floated right aligned six wide column">
+        <i class="thumbs outline up icon"></i>{{message.likes}}<a (click)="likeDisplay()">{{like}}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <!-- <message-comments [message]="message"></message-comments> -->
+</div>

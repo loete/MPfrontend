@@ -1,0 +1,35 @@
+<div class="container">
+
+
+
+
+  <div class="ui grid">
+    <div class="four wide column"></div>
+      <div class="eight wide column">
+        <div class="ui form">
+          <form (ngSubmit)="onSubmit()" [hidden]="loginService.checkLogin()">
+          <div class="field">
+            <label>Login</label>
+            <div class="ui left icon input">
+              <input type="text" required [(ngModel)]="model.username" ngControl="username" placeholder="Username" name="username"><i class="user icon"></i>
+            </div>
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <div class="ui left icon input">
+              <input type="password" required [(ngModel)]="model.password" ngControl="password" placeholder="Password" name="password"><i class="lock icon"></i>
+            </div>
+          </div>
+          <button type="submit" class="ui secondary button">Login</button>
+          </form>
+        </div>
+      </div>
+    <div class="four wide column"></div>
+</div>
+
+<div [hidden]="!loginService.checkLogin()">
+  <h2>Logged in Successfully!</h2>
+  <p>Welcome back, {{currentUserName}}</p>
+</div>
+</div>
+
