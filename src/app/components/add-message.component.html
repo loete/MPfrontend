@@ -1,22 +1,27 @@
-<div>
-  <form *ngIf="!messageAdded" (ngSubmit)="onSubmit()" #addMessageForm = "ngForm">
-    <h2>Add Message</h2>
-    <div>
-      <label>MessageTitel</label>
-      <input type="text" name="messageTitle" placeholder="Title" [(ngModel)]="newMessage.messageTitle">
+<div class="container">
+  <form class="ui form" *ngIf="!messageAdded" (ngSubmit)="onSubmit()" #addMessageForm = "ngForm">
+    <h4 class="ui dividing header">Add Message</h4>
+    <div class="field">
+      <label>Titel</label>
+      <div class="field">
+        <input type="text" name="messageTitle" placeholder="Title" [(ngModel)]="newMessage.messageTitle">
+      </div>
     </div>
-    <div>
-      <label>MessageContent</label>
-      <input type="text" name="messageTitle" placeholder="Title" [(ngModel)]="newMessage.messageContent">
+    <div class="field">
+      <label>Message</label>
+      <div class="field">
+        <textarea type="text" name="messageContent" placeholder="Message..." [(ngModel)]="newMessage.messageContent"></textarea>
+      </div>
     </div>
-    <div>
+    <div class="field">
       <label>Date</label>
-      <input type="date" name="messageDate" placeholder="Date" [(ngModel)]="newMessage.messageDate">
+      <div class="field">
+        <input type="date" name="messageDate" placeholder="Date" [(ngModel)]="newMessage.messageDate">
+      </div>
     </div>
-    <br/>
-    <button type="submit" [disabled]="!addMessageForm.form.valid">Add Message</button>
+    <button class="ui secondary button" type="submit" [disabled]="!addMessageForm.form.valid">Add Message</button>
   </form>
-
+  <!-- when message added succesfully -->
   <div *ngIf="messageAdded">
     <h2>Message Added!</h2>
   </div>

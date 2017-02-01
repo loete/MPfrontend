@@ -1,17 +1,17 @@
-<div *ngFor="let message of messages">
-  <div class="ui raised link card" (click)="onSelect(message)">
-    <div class="content">
-      <div class="header">{{message.messageTitle}}</div>
-      <div class="meta">
-        <span class="right floated time"><i class="heart icon"></i>{{message.likes}}</span>
-        <span class="category">{{message.messageDate}}</span>
+<div class="ui four stackable cards">
+  <div *ngFor="let message of messages" class="ui raised link card" (click)="onSelect(message)">
+      <div class="content">
+        <div class="header">{{message.messageTitle}}</div>
+        <div class="meta">
+          <span class="right floated time"><i class="heart icon"></i>{{message.likes}}</span>
+          <span class="category">{{message.messageDate}}</span>
+        </div>
+        <div class="description">
+          <p>{{message.messageContent}}</p>
+        </div>
       </div>
-      <div class="description">
-        <p>{{message.messageContent}}</p>
+      <div class="extra content">
+        <div class="right floated author">{{message.messageDate}}</div>
       </div>
-    </div>
-    <div class="extra content">
-      <div class="right floated author">{{message.messageDate}}</div>
-    </div>
   </div>
 </div>

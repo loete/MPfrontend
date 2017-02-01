@@ -1,10 +1,23 @@
-<div>
+<div class="container">
   <div>
+    <div class="ui text container center aligned">
+        <button class="ui secondary button" routerLink="/add-message" routerLinkActive="active">Add Message</button>
+    </div>
+    <div *ngFor="let m of messages" class="ui raised very padded text container segment" (click)="onSelect(m)">
+      <h2 class="ui header">{{m.messageTitle}}</h2>
+      <p>{{m.likes}}</p>
+      <p>{{m.messageContent}}</p>
+    </div>
+  </div>
+
+</div>
+<!--
+<div class="container">
+  <div class="ui raised very padded text container segment">
     <span *ngFor="let m of messages" >
-      <div (click)="onSelect(m)">{{m.messageTitle}}</div>
-      <div>{{m.likes}}</div>
-      <div>{{m.messageContent}}</div>
+      <h1 class="ui header">{{message.messageTitle}}</h1>
+      <p>{{message.messageContent}}</p>
     </span>
   </div>
-  <a routerLink="/add-message" routerLinkActive="active">Add Message</a>
 </div>
+-->
