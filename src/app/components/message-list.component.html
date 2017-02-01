@@ -1,5 +1,5 @@
-<div class="ui four stackable cards">
-  <div *ngFor="let message of messages" class="ui raised link card" (click)="onSelect(message)">
+<div class="ui four stackable cards" xmlns:background-color="http://www.w3.org/1999/xhtml">
+  <div *ngFor="let message of messages" class="ui raised link card" (click)="onSelect(message)" >
       <div class="content">
         <div class="header">{{message.messageTitle}}</div>
         <div class="meta">
@@ -13,5 +13,8 @@
       <div class="extra content">
         <div class="right floated author">{{message.messageDate}}</div>
       </div>
+    <div class="extra content">
+      <div class="right floated author">Status: {{message.likes | likes:"text"}}</div>
+    </div>
   </div>
 </div>

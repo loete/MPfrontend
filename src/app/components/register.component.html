@@ -1,4 +1,4 @@
-<div>
+<!--<div>
   <form *ngIf="!registered" (ngSubmit)="onSubmit()" #registerForm = "ngForm">
     <h2>Register User</h2>
     <div>
@@ -14,11 +14,10 @@
     </div>
     <button type="submit" [disabled]="!registerForm.form.valid">Register</button>
   </form>
-
-
 </div>
+-->
 <div class="container">
-  <form class="ui form" *ngIf="!registered" (ngSubmit)="onSubmit()" #registerForm = "ngForm">
+  <form class="ui form" *ngIf="!registered" (ngSubmit)="onSubmit()" #registerForm = "ngForm" novalidate>
     <h4 class="ui dividing header">Register User</h4>
     <div class="field">
       <label>Name</label>
@@ -41,10 +40,35 @@
       <label>Password</label>
       <div class="two fields">
         <div class="field">
-          <input type="password" name="password" placeholder="Password" [(ngModel)]="newUser.password" ngControl="password1" required>
+          <input [(ngModel)]="newUser.password"
+                 type="password"
+                 name="password"
+                 pwd="1234, 0000, 2580, hallo"
+                 placeholder="Password"
+                 ngControl="password1"
+                 required
+                 minlength="4">
         </div>
+
+        <div *ngIf="registerForm?.controls?.password?.hasError('required')">
+          Ist ein Pflichtfeld
+        </div>
+        <div *ngIf="registerForm?.controls?.password?.hasError('minlength')">
+          Bitte mindestens 4 Zeichen eingeben!
+        </div>
+        <div *ngIf="registerForm?.controls?.password?.hasError('pwd')">
+          Dieses Passwort wird aus Sicherheitsgründen nicht erlaubt!
+        </div>
+
+
         <div class="field">
-          <input type="password" name="password" placeholder="Repeat Password" ngControl="password2" required>
+          <input
+            type="password"
+            name="password"
+            placeholder="Repeat Password"
+            ngControl="password2"
+            required
+            minlength="4">
         </div>
       </div>
     </div>

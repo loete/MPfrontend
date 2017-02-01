@@ -24,6 +24,8 @@ import {LoginService} from "./services/login.service";
 import {UserService} from "./services/user.service";
 import {AddMessageService} from "./services/add-message.service";
 import {CommentService} from "./services/comment.service";
+import {LikesPipe} from "./shared/pipes/likes.pipe";
+import {PasswordValidator} from "./shared/validators/password.validator";
 
 
 
@@ -40,6 +42,8 @@ import {CommentService} from "./services/comment.service";
     AddMessage,
     MessageComments,
     MessageDetail,
+    LikesPipe,
+    PasswordValidator,
   ],
   imports: [
     BrowserModule,

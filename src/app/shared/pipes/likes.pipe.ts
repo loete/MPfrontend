@@ -2,32 +2,29 @@
 
 import {PipeTransform, Pipe} from "@angular/core";
 @Pipe({
-  name: 'status',
+  name: 'likes',
   pure: true
 })
-export class StatusPipe implements PipeTransform {
+export class LikesPipe implements PipeTransform {
 
   transform(value: any, ...args: any[]): any {
 
-    let long, short;
+    let text;
     let fmt = args[0];
 
     switch(value) {
-      case "A":
-        long = "Senator";
-        short = "SEN";
+      case (value < 2):
+        text = "Silver";
         break;
-      case "B":
-        long = "Frequent Travelor";
-        short = "FTL";
+      case (value = 2):
+        text = "Gold";
         break;
       default:
-        long = "Passenger";
-        short = "-";
+        text = "Bronze";
     }
 
-    if (fmt == 'short') return short;
-    return long;
+   // if (fmt == 'short') return text;
+    return text;
 
 
   }
