@@ -1,15 +1,24 @@
-<div class="pusher">
-  <div class="ui inverted vertical masthead segment">
-    <div class="ui text container">
-      <h1>{{message.messageTitle}}</h1>
-    </div>
+<div class="container">
+  <div class="ui raised very padded text container segment">
+    <h1 class="ui header">{{message.messageTitle}}</h1>
+    <p>{{message.messageContent}}</p>
+    <p>{{message.user}}</p>
     <br/>
     <div class="ui grid">
-      <div class="left floated six wide column">
-        <i class="long arrow left icon"></i><span (click)="goBack()">Back</span>
+      <div class="right floated eight wide column">
+        <button class="ui black left labeled icon button" (click)="goBack()">
+          <i class="left arrow icon"></i>Back
+        </button>
       </div>
-      <div class="right floated right aligned six wide column">
-        <i class="thumbs outline up icon"></i>{{message.likes}}<a (click)="likeDisplay()">{{like}}</a>
+      <div class="left floated right aligned eight wide column">
+        <div class="ui labeled button" tabindex="0">
+          <div class="ui black button">
+            <i class="heart icon"></i><a style="color: white" (click)="likeDisplay()">{{like}}</a>
+          </div>
+          <a class="ui basic black left pointing label">
+            {{message.likes}}
+          </a>
+        </div>
       </div>
     </div>
   </div>
