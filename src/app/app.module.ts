@@ -39,7 +39,7 @@ import {CommentService} from "./services/comment.service";
     UserMessages,
     AddMessage,
     MessageComments,
-    MessageDetail
+    MessageDetail,
   ],
   imports: [
     BrowserModule,

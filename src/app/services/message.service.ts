@@ -30,4 +30,10 @@ export class MessageService {
     let headers = new Headers({'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
     return this.http.post(tokenUrl, JSON.stringify(message), {headers: headers});
   }
+
+  deleteMessage(message: Message) {
+    let tokenUrl = "http://localhost:8080/rest/message/delete";
+    let headers = new Headers({'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
+    return this.http.post(tokenUrl, JSON.stringify(message), {headers: headers});
+  }
 }

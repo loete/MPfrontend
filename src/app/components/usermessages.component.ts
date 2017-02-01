@@ -13,6 +13,7 @@ export class UserMessages {
   private messages: Message;
   private user;
   private selectedMessage: Message;
+  private deletingMessage: Message;
 
   constructor(private messageService: MessageService, private router: Router, private userService: UserService) {
     this.userService.getUserByName(localStorage.getItem("currentUserName")).subscribe(
@@ -34,4 +35,9 @@ export class UserMessages {
     this.selectedMessage = message;
     this.router.navigate(['/message-detail',this.selectedMessage.messageID]);
   }
+
+  public delete(message:Message) {
+    this.messageService.deleteMessage(message);
+  }
+
 }
