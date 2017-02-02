@@ -25,4 +25,10 @@ export class UserService{
     let headers = new Headers({'Content-Type': 'application/json', 'Authorization':'Bearer '+localStorage.getItem('token')});
     return this.http.post(tokenUrl, JSON.stringify(user), {headers: headers});
   }
+
+  deleteUser(user: User) {
+    let tokenUrl = "http://localhost:8080/rest/user/delete";
+    let headers = new Headers({'Content-Type': 'application/json', 'Authorization':'Bearer '+localStorage.getItem('token')});
+    return this.http.post(tokenUrl, JSON.stringify(user), {headers: headers});
+  }
 }

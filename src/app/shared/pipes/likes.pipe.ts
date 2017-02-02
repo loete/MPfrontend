@@ -13,14 +13,14 @@ export class LikesPipe implements PipeTransform {
     let fmt = args[0];
 
     switch(value) {
+      case (value = 0):
+        text = "Bronze";
+        break;
       case (value = 1):
         text = "Silver";
         break;
-      case (value = 2):
-        text = "Gold";
-        break;
       default:
-        text = "Bronze";
+        text = "Gold";
     }
 
    // if (fmt == 'short') return text;
