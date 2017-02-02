@@ -6,6 +6,7 @@ import {Login} from "./components/login.component";
 import {UserMessages} from "./components/usermessages.component";
 import {AddMessage} from "./components/add-message.component";
 import {MessageDetail} from "./components/message-detail.component";
+import {MessageEdit} from "./components/message-edit.component";
 
 const rootRouterConfig: Routes = [
   {path: '', redirectTo: '/home', pathMatch:'full'},
@@ -14,7 +15,8 @@ const rootRouterConfig: Routes = [
   {path: 'login', component: Login},
   {path: 'my-messages', component: UserMessages},
   {path: 'add-message', component: AddMessage},
-  {path: 'message-detail/:id', component: MessageDetail}
+  {path: 'message-detail/:id', component: MessageDetail},
+  {path: 'message-edit/:id', component: MessageEdit}
 ];
 
 export const rootRouting: ModuleWithProviders = RouterModule.forRoot(rootRouterConfig);

@@ -1,0 +1,28 @@
+<div class="container">
+  <form class="ui form" *ngIf="!messageEdited" (ngSubmit)="onSubmit()" #editMessageForm = "ngForm">
+    <h4 class="ui dividing header">Edit Message</h4>
+    <div class="field">
+      <label>Titel</label>
+      <div class="field">
+        <input type="text" name="messageTitle" placeholder="Title" [(ngModel)]="editedMessage.messageTitle">
+      </div>
+    </div>
+    <div class="field">
+      <label>Message</label>
+      <div class="field">
+        <textarea type="text" name="messageContent" placeholder="Message..." [(ngModel)]="editedMessage.messageContent"></textarea>
+      </div>
+    </div>
+    <div class="field">
+      <label>Date</label>
+      <div class="field">
+        <input type="date" name="messageDate" placeholder="Date" [(ngModel)]="editedMessage.messageDate">
+      </div>
+    </div>
+    <button class="ui secondary button" type="submit" [disabled]="!editMessageForm.form.valid">Edit Message</button>
+  </form>
+  <!-- when message edited succesfully -->
+  <div *ngIf="messageAdded">
+    <h2>Message Edited!</h2>
+  </div>
+</div>

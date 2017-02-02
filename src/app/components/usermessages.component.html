@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="!messageDeleted">
   <div>
     <div class="ui text container center aligned">
         <button class="ui secondary button" routerLink="/add-message" routerLinkActive="active">Add Message</button>
@@ -10,10 +10,17 @@
       <p>{{m.messageContent}}</p>
       <p>----------------------------------------------</p>
     </div>
-      <button (click)="delete(m)">DELETE</button>
+      <button (click)="onDelete(m)">DELETE</button>
+      <button (click)="onEdit(m)">Edit</button>
     </div>
   </div>
 </div>
+
+<!-- when message delete succesfully -->
+<div *ngIf="messageDeleted">
+  <h2>Message Deleted!</h2>
+</div>
+
 <!--
 <div class="container">
   <div class="ui raised very padded text container segment">
