@@ -16,7 +16,8 @@ const rootRouterConfig: Routes = [
   {path: 'my-messages', component: UserMessages},
   {path: 'add-message', component: AddMessage},
   {path: 'message-detail/:id', component: MessageDetail},
-  {path: 'message-edit/:id', component: MessageEdit}
+  {path: 'message-edit/:id', component: MessageEdit},
+
 ];
 
 export const rootRouting: ModuleWithProviders = RouterModule.forRoot(rootRouterConfig);

@@ -14,7 +14,8 @@ export class UserMessages {
   private user;
   private selectedMessage: Message;
   private messageDeleted: boolean = false;
-  private deletingMassage: Message;
+  private deletingMessage: Message;
+  private origin: Message;
 
   constructor(private messageService: MessageService, private router: Router, private userService: UserService) {
     this.userService.getUserByName(localStorage.getItem("currentUserName")).subscribe(
@@ -37,14 +38,15 @@ export class UserMessages {
     this.router.navigate(['/message-detail',this.selectedMessage.messageID]);
   }
 
-  onEdit(message:Message){
+  edit(message:Message){
     this.selectedMessage = message;
     this.router.navigate(['/message-edit',this.selectedMessage.messageID]);
   }
 
-  onDelete(message: Message) {
-          this.deletingMassage = message;
-          this.messageService.deleteMessage(this.deletingMassage.messageID)
+
+  delete(message: Message) {
+          this.deletingMessage = message;
+          this.messageService.deleteMessage(this.deletingMessage)
             .subscribe(
               data => {
                 this.messageDeleted = true;
