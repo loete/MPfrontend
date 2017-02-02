@@ -25,14 +25,14 @@
         <div class="field">
           <input type="text" name="firstName" placeholder="First Name" [(ngModel)]="newUser.firstName" ngControl="firstName" required>
         </div>
-        <div *ngIf="registerForm?.controls?.firstName?.hasError('required')">
-          Pflichtfeld
+        <div class="ui error message"*ngIf="registerForm?.controls?.firstName?.hasError('required')">
+          <p>Pflichtfeld</p>
         </div>
         <div class="field">
           <input type="text" name="lastName" placeholder="Last Name" [(ngModel)]="newUser.lastName" ngControl="lastName" required>
         </div>
-        <div *ngIf="registerForm?.controls?.lastName?.hasError('required')">
-          Pflichtfeld
+        <div class="ui error message" *ngIf="registerForm?.controls?.lastName?.hasError('required')">
+          <p>Pflichtfeld</p>
         </div>
       </div>
     </div>
@@ -62,11 +62,15 @@
         <div *ngIf="registerForm?.controls?.password?.hasError('required')">
           Pflichtfeld
         </div>
-        <div *ngIf="registerForm?.controls?.password?.hasError('minlength')">
-          Bitte mindestens 4 Zeichen eingeben!
+        <div class="ui error message"*ngIf="registerForm?.controls?.password?.hasError('minlength')">
+          <p>Bitte mindestens 4 Zeichen eingeben!</p>
         </div>
-        <div *ngIf="registerForm?.controls?.password?.hasError('pwd')">
-          Dieses Passwort wird aus Sicherheitsgründen nicht erlaubt!
+        <div class="ui error message" *ngIf="registerForm?.controls?.password?.hasError('pwd')">
+          <p>Dieses Passwort wird aus Sicherheitsgründen nicht erlaubt!</p>
+        </div>
+        <div >
+          <div class="header">Action Forbidden</div>
+          <p>You can only sign up for an account once with a given e-mail address.</p>
         </div>
       </div>
     </div>

@@ -1,17 +1,21 @@
-<div class="ui four stackable cards" xmlns:background-color="http://www.w3.org/1999/xhtml">
+<div class="ui four stackable cards">
   <div *ngFor="let message of messages" class="ui raised link card" (click)="onSelect(message)">
-    <div class="content">
+      <div class="content">
         <div class="header">{{message.messageTitle}}</div>
         <div class="meta">
-          <span class="right floated time"><i class="heart icon"></i>{{message.likes}}</span>
-          <span class="category">{{message.messageDate}}</span>
+          <span class="right floated"><i class="heart icon"></i>{{message.likes}}</span>
+          <div class="left floated">{{message.messageDate | date}}</div>
         </div>
         <div class="description">
           <p>{{message.messageContent}}</p>
         </div>
       </div>
       <div class="extra content">
-        <div class="right floated author">{{message.messageDate}}</div>
+        <div class="right floated">
+          <button class="tiny ui black right labeled icon button" (click)="onSelect(message)">
+            <i class="chevron circle right icon"></i>show Details
+          </button>
+        </div>
       </div>
     <div class="extra content">
       <div class="right floated author">Status: {{message.likes | likes:"text"}}</div>

@@ -2,8 +2,6 @@ import {Injectable} from "@angular/core";
 import {Http, Headers} from "@angular/http";
 import {User} from "../entities/user";
 import {Message} from "../entities/message";
-import {PromiseObservable} from "rxjs/observable/PromiseObservable";
-import {Observable} from "rxjs";
 
 @Injectable()
 export class MessageService {
@@ -40,11 +38,10 @@ export class MessageService {
     return this.http.post(url, JSON.stringify(message),{headers: headers});
   }
 
-  deleteMessage(message: Message) {
+  deleteMessage(message:Message) {
+    console.log(message);
     let tokenUrl = "http://localhost:8080/rest/message/delete";
-    console.log(tokenUrl);
     let headers = new Headers({'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
     return this.http.post(tokenUrl, JSON.stringify(message),{headers: headers});
   }
-
 }

@@ -3,33 +3,27 @@
     <div class="ui text container center aligned">
         <button class="ui secondary button" routerLink="/add-message" routerLinkActive="active">Add Message</button>
     </div>
-    <div *ngFor="let m of messages" class="ui raised very padded text container segment">
-    <div  (click)="onSelect(m)">
-      <h2 class="ui header">{{m.messageTitle}}</h2>
-      <p>{{m.likes}}</p>
-      <p>{{m.messageContent}}</p>
-      <p>----------------------------------------------</p>
-    </div>
-      <button (click)="delete(m)">DELETE</button>
-      <button (click)="edit(m)">Edit</button>
+    <div *ngFor="let m of messages" class="ui raised very padded text container segment" >
+      <div  (click)="onSelect(m)">
+        <h2 class="ui header">{{m.messageTitle}}</h2>
+        <p>{{m.likes}}</p>
+        <p>{{m.messageContent}}</p>
+      </div>
+      <div class="ui divider"></div>
+      <div class="right floated">
+        <button class="ui secondary button" (click)="onDelete(m)">Delete Message</button>
+        <button class="ui secondary button" (click)="onEdit(m)">Edit Message</button>
+      </div>
     </div>
   </div>
-
 </div>
 
-<!-- when message delete succesfully -->
-<div *ngIf="messageDeleted">
-  <!--<h2>Are you sure that you want to delete {{mes}}</h2>-->
-
-</div>
-
-<!--
-<div class="container">
-  <div class="ui raised very padded text container segment">
-    <span *ngFor="let m of messages" >
-      <h1 class="ui header">{{message.messageTitle}}</h1>
-      <p>{{message.messageContent}}</p>
-    </span>
+<!-- ask if really delete succesfully -->
+<div class="container" *ngIf="messageDeleted">
+  <h2>Do you really want to delete?</h2>
+  <div *ngIf="trueDelete">
+  <button class="ui secondary button" (click)="deleteComplete(trueDelete)">Delete</button>
+  <button class="ui secondary button" (click)="resetUser(trueDelete)">No</button>
   </div>
 </div>
--->
+

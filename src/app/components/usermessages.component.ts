@@ -15,7 +15,9 @@ export class UserMessages {
   private selectedMessage: Message;
   private messageDeleted: boolean = false;
   private deletingMessage: Message;
-  private origin: Message;
+  private editedMessage:Message
+  private trueDelete: Message;
+  private deleted: boolean = false;
 
   constructor(private messageService: MessageService, private router: Router, private userService: UserService) {
     this.userService.getUserByName(localStorage.getItem("currentUserName")).subscribe(
@@ -38,21 +40,54 @@ export class UserMessages {
     this.router.navigate(['/message-detail',this.selectedMessage.messageID]);
   }
 
-  edit(message:Message){
+  onEdit(message:Message){
     this.selectedMessage = message;
     this.router.navigate(['/message-edit',this.selectedMessage.messageID]);
   }
 
+  resetUser(message:Message){
+    this.userService.getUserByName(localStorage.getItem("currentUserName"))
+      .subscribe(
+        user => {
+          this.user = JSON.parse(JSON.parse(JSON.stringify(user))._body);
+          this.editedMessage = message;
+          this.editedMessage.user = this.user;
+          this.messageService.editMessage(this.editedMessage)
+            .subscribe(
+              data => {
+                this.editedMessage = new Message();
+              },
+              err => console.log(err)
+            );
+        },
+        err => console.log(err)
+      )
+    this.router.navigate(['/home']);
+  }
 
-  delete(message: Message) {
+  onDelete(message: Message) {
           this.deletingMessage = message;
           this.messageService.deleteMessage(this.deletingMessage)
             .subscribe(
               data => {
                 this.messageDeleted = true;
+                this.trueDelete = this.deletingMessage;
               },
               err => console.log(err)
             );
+  }
+
+  deleteComplete(message: Message) {
+    this.deletingMessage = message;
+    this.messageService.deleteMessage(this.deletingMessage)
+      .subscribe(
+        data => {
+          this.messageDeleted = true;
+          this.trueDelete = this.deletingMessage;
+        },
+        err => console.log(err)
+      );
+    this.router.navigate(['/home']);
   }
 
 }

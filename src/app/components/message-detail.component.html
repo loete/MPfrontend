@@ -3,7 +3,9 @@
     <h1 class="ui header">{{message.messageTitle}}</h1>
     <p>{{message.messageContent}}</p>
     <p>{{message.user}}</p>
+    <p class="ui grey">posted on {{message.messageDate | date}}</p>
     <br/>
+
     <div class="ui grid">
       <div class="right floated eight wide column">
         <button class="ui black left labeled icon button" (click)="goBack()">
