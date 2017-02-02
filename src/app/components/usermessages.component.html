@@ -4,24 +4,26 @@
         <button class="ui secondary button" routerLink="/add-message" routerLinkActive="active">Add Message</button>
     </div>
     <div *ngFor="let m of messages" class="ui raised very padded text container segment" >
-    <div  (click)="onSelect(m)">
-      <h2 class="ui header">{{m.messageTitle}}</h2>
-      <p>{{m.likes}}</p>
-      <p>{{m.messageContent}}</p>
-      <p>----------------------------------------------</p>
-    </div>
-      <button (click)="onDelete(m)">DELETE</button>
-      <button (click)="onEdit(m)">Edit</button>
+      <div  (click)="onSelect(m)">
+        <h2 class="ui header">{{m.messageTitle}}</h2>
+        <p>{{m.likes}}</p>
+        <p>{{m.messageContent}}</p>
+      </div>
+      <div class="ui divider"></div>
+      <div class="right floated">
+        <button class="ui secondary button" (click)="onDelete(m)">Delete Message</button>
+        <button class="ui secondary button" (click)="onEdit(m)">Edit Message</button>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- when message delete succesfully -->
-<div *ngIf="messageDeleted">
+<!-- ask if really delete succesfully -->
+<div class="container" *ngIf="messageDeleted">
   <h2>Do you really want to delete?</h2>
   <div *ngIf="trueDelete">
-  <button (click)="onDelete(trueDelete)">DELETE</button>
-  <button (click)="resetUser(trueDelete)">NO</button>
+  <button class="ui secondary button" (click)="deleteComplete(trueDelete)">Delete</button>
+  <button class="ui secondary button" (click)="resetUser(trueDelete)">No</button>
   </div>
 </div>
 
