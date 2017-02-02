@@ -17,7 +17,7 @@ export class UserMessages {
   private deletingMessage: Message;
   private editedMessage:Message
   private trueDelete: Message;
-  private deleted: boolean = false;
+  private delCompleted: boolean = false;
 
   constructor(private messageService: MessageService, private router: Router, private userService: UserService) {
     this.userService.getUserByName(localStorage.getItem("currentUserName")).subscribe(
@@ -82,12 +82,10 @@ export class UserMessages {
     this.messageService.deleteMessage(this.deletingMessage)
       .subscribe(
         data => {
-          this.messageDeleted = true;
-          this.trueDelete = this.deletingMessage;
+          this.delCompleted=true
         },
         err => console.log(err)
       );
-    this.router.navigate(['/home']);
   }
 
 }

@@ -15,19 +15,19 @@ export class UserService{
   }
 
   getUserByName(username: string){
-    let tokenUrl = "http://localhost:8080/rest/user/userName";
+    let tokenUrl = "https://localhost:8080/rest/user/userName";
     let headers = new Headers({'Content-Type': 'application/json', 'Authorization':'Bearer '+localStorage.getItem('token')});
     return this.http.post(tokenUrl, username, {headers: headers});
   }
 
   updateUser(user: User) {
-    let tokenUrl = "http://localhost:8080/rest/user/update";
+    let tokenUrl = "https://localhost:8080/rest/user/update";
     let headers = new Headers({'Content-Type': 'application/json', 'Authorization':'Bearer '+localStorage.getItem('token')});
     return this.http.post(tokenUrl, JSON.stringify(user), {headers: headers});
   }
 
   deleteUser(user: User) {
-    let tokenUrl = "http://localhost:8080/rest/user/delete";
+    let tokenUrl = "https://localhost:8080/rest/user/delete";
     let headers = new Headers({'Content-Type': 'application/json', 'Authorization':'Bearer '+localStorage.getItem('token')});
     return this.http.post(tokenUrl, JSON.stringify(user), {headers: headers});
   }

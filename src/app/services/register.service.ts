@@ -8,7 +8,7 @@ export class RegisterService {
   constructor(private http:Http) {}
 
   sendUser(user:User) {
-    let url = "http://localhost:8080/user/register";
+    let url = "https://localhost:8080/user/register";
     let headers = new Headers({'Content-Type': 'application/json'});
     return this.http.post(url, JSON.stringify(user), {headers: headers});
   }

@@ -1,4 +1,4 @@
-<div class="container" *ngIf="!messageDeleted">
+<div class="container" *ngIf="!messageDeleted && !delCompleted">
   <div>
     <div class="ui text container center aligned">
         <button class="ui secondary button" routerLink="/add-message" routerLinkActive="active">Add Message</button>
@@ -19,11 +19,15 @@
 </div>
 
 <!-- ask if really delete succesfully -->
-<div class="container" *ngIf="messageDeleted">
+<div class="container" *ngIf="messageDeleted && !delCompleted">
   <h2>Do you really want to delete?</h2>
   <div *ngIf="trueDelete">
   <button class="ui secondary button" (click)="deleteComplete(trueDelete)">Delete</button>
   <button class="ui secondary button" (click)="resetUser(trueDelete)">No</button>
   </div>
+</div>
+
+<div class="container" *ngIf="delCompleted && messageDeleted">
+  <h2>Message deleted succesfully!</h2>
 </div>
 

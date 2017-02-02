@@ -9,30 +9,30 @@ export class MessageService {
   }
 
   getMessages(){
-    let url = "http://localhost:8080/message/allMessages";
+    let url = "https://localhost:8080/message/allMessages";
     return this.http.get(url);
   }
 
   getMessagesById (messageId: number) {
-    let tokenUrl = "http://localhost:8080/rest/message/messageId";
+    let tokenUrl = "https://localhost:8080/rest/message/messageId";
     let headers = new Headers({'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
     return this.http.post(tokenUrl, JSON.stringify(messageId), {headers: headers});
   }
 
   getMessagesByUser (user: User) {
-    let tokenUrl = "http://localhost:8080/rest/message/user";
+    let tokenUrl = "https://localhost:8080/rest/message/user";
     let headers = new Headers({'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
     return this.http.post(tokenUrl, JSON.stringify(user), {headers: headers});
   }
 
   updateMessage(message: Message) {
-    let tokenUrl = "http://localhost:8080/rest/message/update";
+    let tokenUrl = "https://localhost:8080/rest/message/update";
     let headers = new Headers({'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
     return this.http.post(tokenUrl, JSON.stringify(message), {headers: headers});
   }
 
   editMessage(message:Message){
-    let url = "http://localhost:8080/rest/message/edit";
+    let url = "https://localhost:8080/rest/message/edit";
     let headers = new Headers({'Content-Type': 'application/json', 'Authorization':'Bearer '+localStorage.getItem('token')});
     console.log(url);
     return this.http.post(url, JSON.stringify(message),{headers: headers});
@@ -40,7 +40,7 @@ export class MessageService {
 
   deleteMessage(message:Message) {
     console.log(message);
-    let tokenUrl = "http://localhost:8080/rest/message/delete";
+    let tokenUrl = "https://localhost:8080/rest/message/delete";
     let headers = new Headers({'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
     return this.http.post(tokenUrl, JSON.stringify(message),{headers: headers});
   }

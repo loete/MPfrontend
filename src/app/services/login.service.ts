@@ -8,13 +8,13 @@ export class LoginService {
   constructor(private http:Http) {}
 
   sendCred(model) {
-    let tokenURL = "http://localhost:8080/user/login";
+    let tokenURL = "https://localhost:8080/user/login";
     let headers = new Headers({'Content-Type': 'application/json'});
     return this.http.post(tokenURL, JSON.stringify(model), {headers: headers});
   }
 
   sendToken(token){
-    let tokenURL = "http://localhost:8080/rest/user/users";
+    let tokenURL = "https://localhost:8080/rest/user/users";
     console.log('Bearer '+token);
 
     let headers = new Headers({'Authorization':'Bearer '+token});
