@@ -13,7 +13,7 @@ export class LikesPipe implements PipeTransform {
     let fmt = args[0];
 
     switch(value) {
-      case (value < 2):
+      case (value = 1):
         text = "Silver";
         break;
       case (value = 2):
