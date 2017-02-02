@@ -8,7 +8,6 @@ import {rootRouting} from "./app.router";
 import { AppComponent } from './app.component';
 import {HomeComponent} from "./components/home.component";
 import {MessageList} from "./components/message-list.component";
-import {SidePanel} from "./components/side-panel.component";
 import {NavBar} from "./components/nav-bar.component";
 import {Register} from "./components/register.component";
 import {Login} from "./components/login.component";
@@ -36,7 +35,6 @@ import {PasswordValidator} from "./shared/validators/password.validator";
     AppComponent,
     HomeComponent,
     MessageList,
-    SidePanel,
     NavBar,
     Register,
     Login,

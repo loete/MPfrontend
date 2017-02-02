@@ -21,56 +21,54 @@
     <h4 class="ui dividing header">Register User</h4>
     <div class="field">
       <label>Name</label>
-      <div class="two fields">
-        <div class="field">
-          <input type="text" name="firstName" placeholder="First Name" [(ngModel)]="newUser.firstName" ngControl="firstName" required>
+      <div class="field">
+        <div class="ui form error">
+          <div class="field">
+            <input type="text" name="firstName" placeholder="First Name" [(ngModel)]="newUser.firstName" ngControl="firstName" required>
+          </div>
+          <div class="ui error message"*ngIf="registerForm?.controls?.firstName?.hasError('required')">
+            <p>Pflichtfeld</p>
+          </div>
         </div>
-        <div class="ui error message"*ngIf="registerForm?.controls?.firstName?.hasError('required')">
-          <p>Pflichtfeld</p>
-        </div>
-        <div class="field">
-          <input type="text" name="lastName" placeholder="Last Name" [(ngModel)]="newUser.lastName" ngControl="lastName" required>
-        </div>
-        <div class="ui error message" *ngIf="registerForm?.controls?.lastName?.hasError('required')">
-          <p>Pflichtfeld</p>
+      </div>
+      <div class="field">
+        <div class="ui form error">
+          <div class="field">
+            <input type="text" name="lastName" placeholder="Last Name" [(ngModel)]="newUser.lastName" ngControl="lastName" required>
+          </div>
+          <div class="ui error message" *ngIf="registerForm?.controls?.lastName?.hasError('required')">
+            <p>Pflichtfeld</p>
+          </div>
         </div>
       </div>
     </div>
     <div class="field">
       <label>UserName</label>
+      <div class="field">
+        <div class="ui form error">
+          <div class="field">
+            <input type="text" name="userName" placeholder="User Name" [(ngModel)]="newUser.userName" ngControl="userName" required>
+          </div>
+          <div class="ui error message" *ngIf="registerForm?.controls?.userName?.hasError('required')">
+            <p>Pflichtfeld</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="field">
-      <input type="text" name="userName" placeholder="User Name" [(ngModel)]="newUser.userName" ngControl="userName" required>
-    </div>
-    <div *ngIf="registerForm?.controls?.lastName?.hasError('required')">
-      Pflichtfeld
-    </div>
+
     <div class="field">
       <label>Password</label>
       <div class="field">
-        <div class="field">
-          <input [(ngModel)]="newUser.password"
-                 type="password"
-                 name="password"
-                 pwd="1234, 0000, 2580, hallo"
-                 placeholder="Password"
-                 ngControl="password1"
-                 required
-                 minlength="4">
-        </div>
-
-        <div *ngIf="registerForm?.controls?.password?.hasError('required')">
-          Pflichtfeld
-        </div>
-        <div class="ui error message"*ngIf="registerForm?.controls?.password?.hasError('minlength')">
-          <p>Bitte mindestens 4 Zeichen eingeben!</p>
-        </div>
-        <div class="ui error message" *ngIf="registerForm?.controls?.password?.hasError('pwd')">
-          <p>Dieses Passwort wird aus Sicherheitsgründen nicht erlaubt!</p>
-        </div>
-        <div >
-          <div class="header">Action Forbidden</div>
-          <p>You can only sign up for an account once with a given e-mail address.</p>
+        <div class="ui form error">
+          <div class="field">
+            <input [(ngModel)]="newUser.password" type="password" name="password"  placeholder="Password"  ngControl="password" required minlength="4">
+          </div>
+          <div class="ui error message" *ngIf="registerForm?.controls?.password?.hasError('required')">
+            <p>Pflichtfeld</p>
+          </div>
+          <div class="ui error message"*ngIf="registerForm?.controls?.password?.hasError('minlength')">
+            <p>Bitte mindestens 4 Zeichen eingeben!</p>
+          </div>
         </div>
       </div>
     </div>

@@ -22,7 +22,7 @@
     <button class="ui secondary button" type="submit" [disabled]="!editMessageForm.form.valid">Edit Message</button>
   </form>
   <!-- when message edited succesfully -->
-  <div *ngIf="messageAdded">
+  <div *ngIf="messageEdited">
     <h2>Message Edited!</h2>
   </div>
 </div>
