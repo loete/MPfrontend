@@ -37,19 +37,20 @@ export class UserMessages {
     this.router.navigate(['/message-detail',this.selectedMessage.messageID]);
   }
 
-  public delete(message:Message) {
+  onEdit(message:Message){
+    this.selectedMessage = message;
+    this.router.navigate(['/message-edit',this.selectedMessage.messageID]);
+  }
+
+  onDelete(message: Message) {
           this.deletingMassage = message;
-          this.messageService.deleteMessage(message)
+          this.messageService.deleteMessage(this.deletingMassage.messageID)
             .subscribe(
               data => {
                 this.messageDeleted = true;
-                this.deletingMassage = new Message();
               },
               err => console.log(err)
             );
-        err => console.log(err)
-
   }
-
 
 }

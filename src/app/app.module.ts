@@ -16,6 +16,7 @@ import {UserMessages} from "./components/usermessages.component";
 import {AddMessage} from "./components/add-message.component";
 import {MessageComments} from "./components/message-comments.component";
 import {MessageDetail} from "./components/message-detail.component";
+import {MessageEdit} from "./components/message-edit.component";
 
 //services
 import {MessageService} from "./services/message.service";
@@ -26,6 +27,7 @@ import {AddMessageService} from "./services/add-message.service";
 import {CommentService} from "./services/comment.service";
 import {LikesPipe} from "./shared/pipes/likes.pipe";
 import {PasswordValidator} from "./shared/validators/password.validator";
+
 
 
 
@@ -42,6 +44,7 @@ import {PasswordValidator} from "./shared/validators/password.validator";
     AddMessage,
     MessageComments,
     MessageDetail,
+    MessageEdit,
     LikesPipe,
     PasswordValidator,
   ],
