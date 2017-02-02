@@ -1,0 +1,31 @@
+<div class="container">
+  <form class="ui form" *ngIf="!userEdited" #editUserForm = "ngForm">
+    <h4 class="ui dividing header">Edit User</h4>
+    <div class="field">
+      <label>Firstname</label>
+      <div class="field">
+        <input type="text" name="firstName" placeholder="Firstname" [(ngModel)]="user.firstName">
+      </div>
+    </div>
+    <div class="field">
+      <label>Lastname</label>
+      <div class="field">
+        <input type="text" name="lastName" placeholder="Lastname" [(ngModel)]="user.lastName">
+      </div>
+    </div>
+    <button class="ui secondary button" (click)="edit(user)" type="submit" [disabled]="!editUserForm.form.valid">Edit User</button>
+
+  </form>
+  <button class="ui secondary button" (click)="delete(user)">Delete User</button>
+
+
+<!-- when message edited succesfully -->
+<div *ngIf="userEdited">
+  <h2>You changed your Userdetails succesfully!</h2>
+
+</div>
+  <div *ngIf="userDeleted">
+    <h2>You changed your Userdetails succesfully!</h2>
+
+  </div>
+</div>

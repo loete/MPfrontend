@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="ui raised very padded text container segment">
+<div class="container" >
+  <div class="ui raised very padded text container segment" *ngIf="user">
     <h1 class="ui header">{{message.messageTitle}}</h1>
     <p>{{message.messageContent}}</p>
     <p>{{message.user}}</p>
@@ -22,8 +22,8 @@
       </div>
     </div>
   </div>
+  <div *ngIf="!user">
+    <h1>Für Details bitte einloggen</h1>
+  </div>
 </div>
 
-<div>
-  <!-- <message-comments [message]="message"></message-comments> -->
-</div>

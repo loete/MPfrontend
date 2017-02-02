@@ -68,21 +68,6 @@
         <div *ngIf="registerForm?.controls?.password?.hasError('pwd')">
           Dieses Passwort wird aus Sicherheitsgründen nicht erlaubt!
         </div>
-
-
-        <div class="field">
-          <label>Repeat Password</label>
-          <input
-            type="password"
-            name="password_"
-            placeholder="Repeat Password"
-            ngControl="password2"
-            required
-            minlength="4">
-        </div>
-        <div *ngIf="registerForm?.controls?.password_?.hasError('required')">
-          Pflichtfeld
-        </div>
       </div>
     </div>
     <button class="ui secondary button" type="submit" [disabled]="!registerForm.form.valid">Register</button>
