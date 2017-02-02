@@ -38,11 +38,10 @@ export class MessageService {
     return this.http.post(url, JSON.stringify(message),{headers: headers});
   }
 
-  deleteMessage(messageId: Number) {
-    console.log(messageId);
-    let tokenUrl = "http://localhost:8080/rest/message/delete/"+messageId;
-    console.log(tokenUrl);
+  deleteMessage(message:Message) {
+    console.log(message);
+    let tokenUrl = "http://localhost:8080/rest/message/delete";
     let headers = new Headers({'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
-    return this.http.delete(tokenUrl, {headers: headers});
+    return this.http.post(tokenUrl, JSON.stringify(message),{headers: headers});
   }
 }
