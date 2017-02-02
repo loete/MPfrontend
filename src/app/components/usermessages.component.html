@@ -3,10 +3,14 @@
     <div class="ui text container center aligned">
         <button class="ui secondary button" routerLink="/add-message" routerLinkActive="active">Add Message</button>
     </div>
-    <div *ngFor="let m of messages" class="ui raised very padded text container segment" (click)="onSelect(m)">
+    <div *ngFor="let m of messages" class="ui raised very padded text container segment" >
+    <div  (click)="onSelect(m)">
       <h2 class="ui header">{{m.messageTitle}}</h2>
       <p>{{m.likes}}</p>
       <p>{{m.messageContent}}</p>
+      <p>----------------------------------------------</p>
+    </div>
+      <button (click)="delete(m)">DELETE</button>
     </div>
   </div>
 </div>
