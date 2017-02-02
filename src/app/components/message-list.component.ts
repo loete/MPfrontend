@@ -23,4 +23,6 @@ export class MessageList {
     this.selectedMessage = message;
     this.router.navigate(['/message-detail', this.selectedMessage.messageID]);
   }
+
+  find
 }

@@ -3,15 +3,23 @@
       <div class="content">
         <div class="header">{{message.messageTitle}}</div>
         <div class="meta">
-          <span class="right floated time"><i class="heart icon"></i>{{message.likes}}</span>
-          <span class="category">{{message.messageDate}}</span>
+          <span class="right floated"><i class="heart icon"></i>{{message.likes}}</span>
+          <div class="left floated">{{message.messageDate | date}}</div>
         </div>
         <div class="description">
           <p>{{message.messageContent}}</p>
         </div>
       </div>
       <div class="extra content">
-        <div class="right floated author">{{message.messageDate}}</div>
+        <div class="ui right aligned">
+          <a class="ui grey" >show Details</a>
+        </div>
+        <div class="right floated">
+          <button class="tiny ui black right labeled icon button" (click)="onSelect(message)">
+            <i class="chevron circle right icon"></i>show Detail
+          </button>
+        </div>
       </div>
+
   </div>
 </div>

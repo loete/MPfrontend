@@ -3,8 +3,8 @@
     <img src="../../resources/static/logo.png">
   </div>
   <a class="item" routerLink="/home" routerLinkActive="active">Home</a>
-  <a class="item" routerLink="/my-messages" routerLinkActive="active">myMessages</a>
-  <a class="item" routerLink="/add-message" routerLinkActive="active">addMessage</a>
+  <a class="item" *ngIf="loginService.checkLogin()" routerLink="/my-messages" routerLinkActive="active">myMessages</a>
+  <a class="item" *ngIf="loginService.checkLogin()" routerLink="/add-message" routerLinkActive="active">addMessage</a>
   <div class="right menu">
     <a class="right floated item" *ngIf="!loginService.checkLogin()" routerLink="/register" routerLinkActive="active">Register</a>
     <a class="right floated item" routerLink="/login" routerLinkActive="active" (click)="onClick()">{{loginService.checkLogin()?'Logout':'Login'}}</a>
