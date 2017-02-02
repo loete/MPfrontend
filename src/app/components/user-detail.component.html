@@ -1,5 +1,5 @@
-<div class="container">
-  <form class="ui form" *ngIf="!userEdited" #editUserForm = "ngForm">
+<div class="container" *ngIf="!userEdited">
+  <form class="ui form"  #editUserForm = "ngForm">
     <h4 class="ui dividing header">Edit User</h4>
     <div class="field">
       <label>Firstname</label>
@@ -16,16 +16,13 @@
     <button class="ui secondary button" (click)="edit(user)" type="submit" [disabled]="!editUserForm.form.valid">Edit User</button>
 
   </form>
+  <div class="ui divider"></div>
   <button class="ui secondary button" (click)="delete(user)">Delete User</button>
-
+</div>
 
 <!-- when message edited succesfully -->
-<div *ngIf="userEdited">
-  <h2>You changed your Userdetails succesfully!</h2>
-
-</div>
-  <div *ngIf="userDeleted">
+<div class="container">
+  <div *ngIf="userEdited">
     <h2>You changed your Userdetails succesfully!</h2>
-
   </div>
 </div>
